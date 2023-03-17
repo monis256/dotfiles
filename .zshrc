@@ -124,16 +124,9 @@ typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 ### Custom
 export PATH="$HOME/bin:$PATH"
 
-
-
 autoload -U compinit; compinit
 
-# Startup Directory
-cd ~/src/github.com/Shopify
-
-
-# Aliases
-alias mine=rubymine
-alias core=shopify
-alias cop=bin/rake rubocop
-alias sp=spin
+# Load Aliases File
+if [ -f ~/.bash_aliases ]; then
+  . ~/.bash_aliases
+fi
