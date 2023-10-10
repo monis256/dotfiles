@@ -1,0 +1,9 @@
+System Init
+  - Setup Git
+  - Setup Terminal
+    - Zsh
+    - ohmyzsh
+    - fonts-powerline
+    - powerlevel10k
+    - zsh-autosuggestions
+    - zsh-syntax-highlighting

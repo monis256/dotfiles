@@ -1,2 +1,0 @@
-- Init Gitconfig
-  - User name and email
