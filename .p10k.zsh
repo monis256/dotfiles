@@ -1,0 +1,1 @@
+/home/localadmin/.p10k.zsh
