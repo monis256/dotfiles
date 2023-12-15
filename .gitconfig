@@ -58,3 +58,9 @@
 [lfs]
 	batch = false
 
+[user]
+	name = Vivian Ajay Monis
+	email = vivian.monis@thescore.com
+	signingkey = F46DCC9DAA1C36DB
+[commit]
+	gpgsign = true
