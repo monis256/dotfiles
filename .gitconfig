@@ -47,6 +47,7 @@
  	plr = pull --rebase
 	clr = "!git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
 	acp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
+  update = "!git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git clr && git pull"
 
 [core]	
 	autocrlf = input
@@ -57,4 +58,3 @@
 
 [lfs]
 	batch = false
-
