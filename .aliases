@@ -1,7 +1,7 @@
-alias dc='docker compose'
-alias myip='curl ifconfig.me'
-alias myspeed='speedtest'
-alias py='python3'
-alias python='python3'
-alias pip='pip3'
+alias dc='docker-compose'
 alias dk='docker'
+alias kx='kubectx'
+alias kc='kubectl'
+
+# theScore
+alias update_k8='sdm kubernetes update-config'
