@@ -36,6 +36,7 @@
 
 [push]
 	default = tracking
+	autoSetupRemote = true
 	
 [alias]
 	lg1 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(auto)%d%C(reset)' --all
@@ -46,9 +47,10 @@
   co = checkout
   st = status
  	plr = pull --rebase
-	clr = "!git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
-	acp = "!f() { git add -A && git commit -m \"$@\" && git push; }; f"
-  update = "!git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git clr && git pull"
+	clr = !"git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
+	acp = !"f() { git add -A && git commit -m \"$@\" && git push; }; f"
+  update = !"git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git clr && git pull"
+  main = !"main || master || develop"
 
 [core]	
 	autocrlf = input
