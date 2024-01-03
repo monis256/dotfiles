@@ -1,0 +1,14 @@
+{
+  "packages": [],
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null"
+    ],
+    "scripts": {
+      "update": [
+        "mix deps.get"
+      ],
+      "console": ["iex -S mix"]
+    }
+  }
+}
