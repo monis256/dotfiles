@@ -34,6 +34,10 @@
   old = red
   new = green
   whitespace = white reverse
+  meta = yellow
+  old = red
+  new = green
+  whitespace = white reverse
 
 [color "status"]
 	added = green
@@ -68,3 +72,8 @@
 
 [lfs]
 	batch = false
+[user]
+	name = Vivian Ajay Monis
+	email = monis256@gmail.com
+[commit]
+	gpgsign = false
