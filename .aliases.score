@@ -1,1 +1,6 @@
-alias k8_update='sdm kubernetes update-config'
+alias k8_update_config='sdm kubernetes update-config --force'
+alias k9='k9s'
+alias load_env='echo "Sourcing ENV variables..."; source bin/mac_env'
+alias casino='$HOME/coderepo/casino'
+alias localstack='$HOME/coderepo/localstack'
+alias edgebook='$HOME/coderepo/edgebook'
