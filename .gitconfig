@@ -23,11 +23,10 @@
 	tag = magenta bold
 
 [color "diff"]
- 	meta = yellow
- 	frag = cyan
- 	old = red bold
- 	new = green bold
- 	whitespace = white reverse
+  meta = yellow
+  old = red
+  new = green
+  whitespace = white reverse
 
 [color "status"]
 	added = green
@@ -39,18 +38,20 @@
 	autoSetupRemote = true
 	
 [alias]
-	lg1 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(auto)%d%C(reset)' --all
-	lg2 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(bold cyan)(%ar)%C(reset) %C(bold yellow)%d%C(reset) %n'' %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset)' --all
-  lg3 = log --graph --abbrev-commit --decorate --date=format-local:'%Y-%m-%d %H:%M:%S %Z' --format=format:'%C(bold red)%h%C(reset) - %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset)' --all
-	lg = !"git lg3"
+  main = !"main || master || develop"
   br = branch
   co = checkout
   st = status
  	plr = pull --rebase
+	lg1 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(auto)%d%C(reset)' --all
+	lg2 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(bold cyan)(%ar)%C(reset) %C(bold yellow)%d%C(reset) %n'' %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset)' --all
+  lg3 = log --graph --abbrev-commit --decorate --date=format-local:'%Y-%m-%d %H:%M:%S %Z' --format=format:'%C(bold red)%h%C(reset) - %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset)' --all
+	lg = !"git lg3"
 	clr = !"git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
 	acp = !"f() { git add -A && git commit -m \"$@\" && git push; }; f"
-  update = !"git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git clr && git pull"
-  main = !"main || master || develop"
+  update = !"git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git clr && git plr"
+  delete = !"f() { git br -D $1; git push origin -d $1; }; f"
+
 
 [core]	
 	autocrlf = input
@@ -61,3 +62,8 @@
 
 [lfs]
 	batch = false
+[user]
+	name = Vivian Ajay Monis
+	email = monis256@gmail.com
+[commit]
+	gpgsign = false
