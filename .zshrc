@@ -122,6 +122,4 @@ source $HOME/.aliases.score
 # Need to get auto completion working
 FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
-
-
 autoload -U compinit; compinit
