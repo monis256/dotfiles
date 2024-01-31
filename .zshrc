@@ -119,23 +119,5 @@ source $HOME/.aliases.score
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Mac - The Score
-# Need to get auto completion working
-FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
-
-# Paths
-path+=$HOME/coderepo/localstack/scripts
-path+=$HOME/.asdf/bin
-path+=$HOME/.asdf/shims
-
 # direnv
 eval "$(direnv hook zsh)"
-
-export PATH
-autoload -U compinit; compinit
-
-# hard links
-# casino
-rm $HOME/coderepo/casino/.git/info/exclude && ln $HOME/coderepo/localstack/local_exclude $HOME/coderepo/casino/.git/info/exclude
-# identity
-rm $HOME/coderepo/identity/.git/info/exclude && ln $HOME/coderepo/localstack/local_exclude $HOME/coderepo/identity/.git/info/exclude
