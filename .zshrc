@@ -121,3 +121,5 @@ source $HOME/.aliases.score
 
 # direnv
 eval "$(direnv hook zsh)"
+
+export PATH
