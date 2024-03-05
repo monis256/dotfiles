@@ -81,6 +81,7 @@ plugins=(
   git
   zsh-autosuggestions
   zsh-syntax-highlighting
+  direnv
   )
 
 source $ZSH/oh-my-zsh.sh
@@ -122,4 +123,13 @@ source $HOME/.aliases.score
 # Need to get auto completion working
 FPATH=$(brew --prefix)/share/zsh/site-functions:$FPATH
 
+# Paths
+path+=$HOME/coderepo/localstack/scripts
+path+=$HOME/.asdf/bin
+path+=$HOME/.asdf/shims
+
+# direnv
+eval "$(direnv hook zsh)"
+
+export PATH
 autoload -U compinit; compinit
