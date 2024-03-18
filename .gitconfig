@@ -52,18 +52,19 @@
   update = !"git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git clr && git plr"
   delete = !"f() { git br -D $1; git push origin -d $1; }; f"
 
-
 [core]	
 	autocrlf = input
 	hooksPath = ~/.git-templates/hooks
+	editor = nano
 
 [pager]
 	branch = false
 
 [lfs]
 	batch = false
+
 [user]
 	name = Vivian Ajay Monis
-	email = monis256@gmail.com
+
 [commit]
-	gpgsign = false
+	gpgsign = true
