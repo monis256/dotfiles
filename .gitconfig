@@ -75,6 +75,7 @@
 
 [user]
 	name = Vivian Ajay Monis
+	email = monis256@gmail.com
 
 [commit]
 	gpgsign = true
