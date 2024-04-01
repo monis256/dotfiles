@@ -1,4 +1,4 @@
-alias k8_update_config='sdm kubernetes update-config --force && kubectx scorebet-ca-on-staging'
+alias k8_update_config='sdm kubernetes update-config --force'
 alias k9='k9s'
 alias casino='$HOME/coderepo/casino'
 alias localstack='$HOME/coderepo/localstack'
