@@ -133,3 +133,9 @@ eval "$(direnv hook zsh)"
 
 export PATH
 autoload -U compinit; compinit
+
+# hard links
+# casino
+rm $HOME/coderepo/casino/.git/info/exclude && ln $HOME/coderepo/localstack/local_exclude $HOME/coderepo/casino/.git/info/exclude
+# identity
+rm $HOME/coderepo/identity/.git/info/exclude && ln $HOME/coderepo/localstack/local_exclude $HOME/coderepo/identity/.git/info/exclude
