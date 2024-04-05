@@ -123,3 +123,4 @@ source $HOME/.aliases.score
 eval "$(direnv hook zsh)"
 
 export PATH
+autoload -U compinit; compinit
