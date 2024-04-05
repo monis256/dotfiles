@@ -1,3 +1,10 @@
+[user]
+	name = Vivian Ajay Monis
+	email = monis256@gmail.com
+
+[commit]
+	gpgsign = true
+
 [init]
 	defaultBranch = main
 
@@ -38,8 +45,7 @@
 	autoSetupRemote = true
 	
 [alias]
-  main-branch = !git symbolic-ref refs/remotes/origin/HEAD | cut -d'/' -f4
-  com = !"git checkout $(git main-branch)"
+  main-branch = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
   br = branch
   co = checkout
   st = status
@@ -50,9 +56,8 @@
 	lg = !"git lg3"
 	clr = !"git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
 	acp = !"f() { git add -A && git commit -m \"$@\" && git push; }; f"
-  update = !"git co $(git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@') && git clr && git plr"
+  update = !"git co $(git main-branch) && git clr && git plr"
   delete = !"f() { git br -D $1; git push origin -d $1; }; f"
-
 
 [core]	
 	autocrlf = input
@@ -64,10 +69,3 @@
 
 [lfs]
 	batch = false
-
-[user]
-	name = Vivian Ajay Monis
-	email = monis256@gmail.com
-
-[commit]
-	gpgsign = true
