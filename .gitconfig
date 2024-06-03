@@ -49,15 +49,14 @@
   br = branch
   co = checkout
   st = status
- 	plr = pull --rebase
 	lg1 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(auto)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(bold cyan)(%ar)%C(reset) %C(bold yellow)%d%C(reset) %n'' %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset)' --all
   lg3 = log --graph --abbrev-commit --decorate --date=format-local:'%Y-%m-%d %H:%M:%S %Z' --format=format:'%C(bold red)%h%C(reset) - %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset)' --all
 	lg = !"git lg3"
-	clr = !"git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
-	acp = !"f() { git add -A && git commit -m \"$@\" && git push; }; f"
-  update = !"git co $(git main-branch) && git clr && git plr"
+	clear = !"git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
+  update = !"git co $(git main-branch) && git clear && git pull --rebase"
   delete = !"f() { git br -D $1; git push origin -d $1; }; f"
+  rb = !"f() {  git fetch origin $(git main-branch) && git rebase origin/$(git main-branch); }; f"
 
 [core]	
 	autocrlf = input
