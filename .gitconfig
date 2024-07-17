@@ -51,8 +51,12 @@
   main-branch = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
   main-branch = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
   br = branch
-  co = checkout
   st = status
+  co = checkout
+  main-branch = !"git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'"
+  delete = !"git checkout $(git main-branch) && git branch -D $(git select-branch)"
+  clear = !"git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
+  update = !"git checkout $(git main-branch) && git clear && git pull --rebase"
 	lg1 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(auto)%d%C(reset)' --all
 	lg2 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(bold cyan)(%ar)%C(reset) %C(bold yellow)%d%C(reset) %n'' %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset)' --all
   lg3 = log --graph --abbrev-commit --decorate --date=format-local:'%Y-%m-%d %H:%M:%S %Z' --format=format:'%C(bold red)%h%C(reset) - %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset)' --all
