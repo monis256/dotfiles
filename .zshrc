@@ -112,15 +112,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Aliases
+# custom alias
 source $HOME/.aliases
-source $HOME/.aliases.score
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # direnv
 eval "$(direnv hook zsh)"
+
+# Custom rc files
+source $HOME/.zshrc.thescore
 
 export PATH
 autoload -U compinit; compinit
