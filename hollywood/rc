@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# check vpn connection
+python3 $HOME/home-automation/scripts/airvpn_connection.py

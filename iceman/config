@@ -1,0 +1,11 @@
+# UserKnownHostsFile=/dev/null
+# StrictHostKeyChecking=no
+
+Host *
+  AddKeysToAgent yes
+  IdentityFile ~/.ssh/id_iceman
+
+Host hollywood
+  User localadmin
+  Port 2050
+  HostName 192.168.50.54
