@@ -4,6 +4,7 @@
 
 [commit]
 	gpgsign = false
+
 [init]
 	defaultBranch = main
 
@@ -33,10 +34,6 @@
   old = red
   new = green
   whitespace = white reverse
-  meta = yellow
-  old = red
-  new = green
-  whitespace = white reverse
 
 [color "status"]
 	added = green
@@ -48,8 +45,6 @@
 	autoSetupRemote = true
 	
 [alias]
-  main-branch = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
-  main-branch = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
   br = branch
   st = status
   co = checkout
@@ -61,12 +56,10 @@
 	lg2 = log --graph --abbrev-commit --decorate --date=local --format=format:'%C(bold red)%h%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset) %C(bold cyan)(%ar)%C(reset) %C(bold yellow)%d%C(reset) %n'' %C(dim white)as%C(reset) %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset)' --all
   lg3 = log --graph --abbrev-commit --decorate --date=format-local:'%Y-%m-%d %H:%M:%S %Z' --format=format:'%C(bold red)%h%C(reset) - %C(bold white)%s%C(reset) %C(dim white)by%C(reset) %C(bold green)%an%C(reset) %C(dim white)on%C(reset) %C(bold yellow)%ad%C(reset)' --all
 	lg = !"git lg3"
-	clear = !"git fetch -p && git branch -vv | awk '/: gone]/{print $1}' | xargs git branch -D"
-  update = !"git co $(git main-branch) && git clear && git pull --rebase"
-  delete = !"f() { git br -D $1; git push origin -d $1; }; f"
-  rb = !"f() {  git fetch origin $(git main-branch) && git rebase origin/$(git main-branch); }; f"
-
-  rb = !"f() {  git fetch origin $(git main-branch) && git rebase origin/$(git main-branch); }; f"
+  rb = !"git fetch origin $(git main-branch) && git rebase origin/$(git main-branch)"
+  undo = !"git fetch origin $(git main-branch) && git reset --soft origin/$(git main-branch)"
+  irb = !"git fetch origin $(git main-branch) && git rebase -i origin/$(git main-branch)"
+  del-br-completely = !"git br -D $1 && git push -d origin"
 
 [core]	
 	autocrlf = input
