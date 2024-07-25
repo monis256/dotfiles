@@ -8,4 +8,4 @@ Host *
 Host iceman
   User localadmin
   Port 2050
-  HostName 192.168.50.11
+  HostName 192.168.50.17
